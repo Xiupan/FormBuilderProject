@@ -1,0 +1,16 @@
+.form-container{
+  width: 80%;
+  height: 80%;
+  border: 1px solid black;
+  border-radius: 1%;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form input{
+  padding: 5%;
+}

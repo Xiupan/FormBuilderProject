@@ -34,6 +34,9 @@ var formData = [
     "icon": "",
     "options": [
       {
+        "label": "Select Language..."
+      },
+      {
         "label": "English",
         "value": "EN"
       },
@@ -64,7 +67,7 @@ var formData = [
   },
   {
     "type": "tel",
-    "label": "Mobil Number",
+    "label": "Mobile Number",
     "id": "user-mobile",
     "icon": "fa-mobile-phone",
     "options": []
@@ -77,3 +80,52 @@ var formData = [
     "options": []
   }
 ];
+
+for(let i = 0; i < formData.length; ++i){
+  var formNode = document.querySelector('.fields');
+  if(formData[i].type === 'text'){
+    var formInput = document.createElement('input');
+    formInput.type = formData[i].type;
+    formInput.placeholder = formData[i].label;
+    formInput.id = formData[i].id;
+    formInput.icon = formData[i].icon;
+    formNode.appendChild(formInput);
+  } else if (formData[i].type === 'email'){
+    formInput = document.createElement('input');
+    formInput.type = formData[i].type;
+    formInput.placeholder = formData[i].label;
+    formInput.id = formData[i].id;
+    formInput.icon = formData[i].icon;
+    formNode.appendChild(formInput).setAttribute('type', formData[i].type);
+  } else if (formData[i].type === 'select'){
+    formSelect = document.createElement('select');
+    formInput.type = formData[i].type;
+    formInput.placeholder = formData[i].label;
+    formInput.id = formData[i].id;
+    formInput.icon = formData[i].icon;
+    formNode.appendChild(formSelect);
+    var selectNode = document.querySelector('select');
+    console.log(formData[i].options.length);
+    for(let p = 0; p < formData[i].options.length; ++p){
+      var selectOptionInput = document.createElement('option');
+      selectOptionInput.label = formData[i].options[p].label;
+      selectOptionInput.value = formData[i].options[p].value;
+      selectNode.appendChild(selectOptionInput);
+    }
+  } else if (formData[i].type === 'textarea'){
+    formInput = document.createElement('input');
+    formInput.type = formData[i].type;
+    formInput.placeholder = formData[i].label;
+    formInput.id = formData[i].id;
+    formInput.icon = formData[i].icon;
+    formNode.appendChild(formInput).setAttribute('type', formData[i].type);
+  } else if (formData[i].type === 'tel'){
+    formInput = document.createElement('input');
+    formInput.type = formData[i].type;
+    formInput.placeholder = formData[i].label;
+    formInput.id = formData[i].id;
+    formInput.icon = formData[i].icon;
+    formNode.appendChild(formInput).setAttribute('type', formData[i].type);
+  }
+  // var textNode = document.createTextNode(formData[i].type);
+}
